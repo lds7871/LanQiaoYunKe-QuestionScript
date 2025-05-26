@@ -27,7 +27,7 @@ public class Testput {
                     By.className("btn-close")));
             closeButton.click();
                     // 等待页面加载
-            Thread.sleep(1000);
+            Thread.sleep(4000);
 
             // 尝试多种定位方式找到"题解"元素
             WebElement tiJieElement = wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -43,7 +43,7 @@ public class Testput {
                     By.xpath("//span[contains(text(),'C/C++')]")));
             wait.until(ExpectedConditions.elementToBeClickable(cppElement));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cppElement);
-            Thread.sleep(500);
+            Thread.sleep(1000);
 
             // 点击第一个人的答案
             WebElement firstNoteTitle = wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -91,7 +91,7 @@ public class Testput {
                     By.id("oj-submit-btn")));
             wait.until(ExpectedConditions.elementToBeClickable(submitButton));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitButton);
-            Thread.sleep(5000);
+            Thread.sleep(6000);
 
             // 等待content-wrap加载完成
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className("content-wrap")));

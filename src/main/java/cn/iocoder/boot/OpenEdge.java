@@ -15,6 +15,9 @@ public class OpenEdge {
     private static final Logger logger = LoggerFactory.getLogger(OpenEdge.class);
 
     public static EdgeDriver openEdge(String 链接,String 手机号,String 密码,String 本地程序) {
+        System.out.println(链接);
+        System.out.println(手机号);System.out.println(密码);System.out.println(本地程序);
+
         EdgeDriver driver = null;
         try {
             System.setProperty("webdriver.edge.driver", 本地程序);
@@ -28,7 +31,7 @@ public class OpenEdge {
             driver.get(链接);
 
             // 等待3秒，确保元素加载完成
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
             //使用CSS选择器定位     请输入手机号码

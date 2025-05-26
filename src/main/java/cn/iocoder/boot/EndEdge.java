@@ -10,7 +10,7 @@ public class EndEdge {
     public static void closeDriver(EdgeDriver driver) {
         try {
             if (driver != null) {
-                Thread.sleep(300); // 等待一秒确保所有操作完成
+                Thread.sleep(1000); // 等待一秒确保所有操作完成
                 driver.quit();      // 关闭浏览器并结束WebDriver会话
                 logger.info("浏览器已成功关闭");
             }
