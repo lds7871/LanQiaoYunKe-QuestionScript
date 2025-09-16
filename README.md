@@ -2,6 +2,7 @@
 程序仅供交流学习。
 <h2>脚本流程架构</h2>
 <img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/0a6436f6-3624-4b5b-a6e0-f0af14e65c5e" />
+现在你每次运行都会产生日志文件“log+日期”
 <h2>更新公告</h2>
 <li>25/5/29————经过两小时多的测试，账号测试题目共470+道，测试通过301题。</li>
 <li>25/9/16————优化了代码架构，增加了日志和记录功能，增强代码可读性，更新README。</li>
