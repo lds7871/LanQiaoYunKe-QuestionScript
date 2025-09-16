@@ -30,7 +30,7 @@ public class OpenEdge {
             driver = new EdgeDriver(options);
             driver.get(链接);
 
-            // 等待3秒，确保元素加载完成
+            // 等待，确保元素加载完成
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 

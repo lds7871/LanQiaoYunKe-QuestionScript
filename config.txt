@@ -1,4 +1,4 @@
 你的蓝桥账号
 你的蓝桥密码
-你的msedgedriver.exe路径
-你的开始题目(推荐100，程序会自增次参数)
+你的msedgedriver.exe路径 （E:\app\edgedriver\msedgedriver.exe）
+100
