@@ -1,5 +1,6 @@
 #蓝桥题库自动刷题脚本
 程序仅供交流学习。
+<h3>脚本测试账号：https://www.lanqiao.cn/users/3536247/</h3>
 <h2>脚本时序架构</h2>
 <img width="2408" height="3000" alt="mermaid-diagram-2025-09-24-194347" src="https://github.com/user-attachments/assets/eecff3e7-9985-45f0-887b-5baa6c218053" />
 
