@@ -11,7 +11,7 @@
 <h2>预先准备</h2>
   <li>下载Edgedriver程序————https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/?form=MA13LH（这是微软的浏览器自动驱动软件，只需要几十兆）</li>
   <li>请确保Edgedriver程序与你的Edge浏览器保持版本一致</li>
-  <li>修改config.txt————按照config.txt内的要求覆盖替换为你的账号密码以及路径</li>
+  <li>修改config.properties————按照config.properties内的要求覆盖替换为你的账号密码以及路径</li>
   <li>配置Maven———下载三方库</li>
 <h2>仓库说明:</h2>
 <li>仓库项目无不良引导，请自行甄别。本质是读取网页内的已解决的代码进行复制粘贴然后检测。</li>
