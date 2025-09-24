@@ -67,11 +67,16 @@ public class Main {
      * 初始化题目信息
      */
     private static void 初始化题目信息(题目信息 题目) {
-        ArrayList<String> 配置内容 = ReadConfig.ConfigRead("config.txt");
-        题目.当前题目ID = 配置内容.get(3);
-        题目.题目链接 = "https://www.lanqiao.cn/problems/" + 配置内容.get(3) + "/learning/";
-        题目.下一题号 = Integer.parseInt(配置内容.get(3)) + 1;
-        题目.配置内容 = 配置内容;
+        // 使用 properties 配置
+        String 当前题目ID = Config.获取题目ID();
+        题目.当前题目ID = 当前题目ID;
+        题目.题目链接 = "https://www.lanqiao.cn/problems/" + 当前题目ID + "/learning/";
+        try {
+            题目.下一题号 = Integer.parseInt(当前题目ID) + 1;
+        } catch (NumberFormatException e) {
+            题目.下一题号 = 0;
+        }
+        // 题目.配置内容 不再使用，保留字段兼容
 
         LogGenerate.记录开始(题目.当前题目ID, 题目.题目链接);
     }
@@ -80,15 +85,19 @@ public class Main {
      * 启动浏览器并登录
      */
     private static void 启动浏览器并登录(题目信息 题目) {
+        String 手机号 = Config.获取手机号();
+        String 密码 = Config.获取密码();
+        String 驱动路径 = Config.获取驱动路径();
+
         题目.浏览器驱动 = OpenEdge.openEdge(
             题目.题目链接,
-            题目.配置内容.get(0),
-            题目.配置内容.get(1),
-            题目.配置内容.get(2)
+            手机号,
+            密码,
+            驱动路径
         );
 
-        LogGenerate.记录浏览器启动(true, 题目.配置内容.get(2));
-        LogGenerate.记录登录(true, 题目.配置内容.get(0));
+        LogGenerate.记录浏览器启动(true, 驱动路径);
+        LogGenerate.记录登录(true, 手机号);
     }
 
     /**
@@ -106,7 +115,10 @@ public class Main {
         if (题目.浏览器驱动 != null) {
             EndEdge.closeDriver(题目.浏览器驱动);
         }
-        AddConfig.modifyFourthLine("config.txt", 题目.下一题号);
+        // 更新 properties 中的题目ID
+        if (题目.下一题号 > 0) {
+            Config.更新题目ID(题目.下一题号);
+        }
     }
 
     /**
@@ -116,7 +128,9 @@ public class Main {
         LogGenerate.自定义记录("未找到复制按钮，跳过本题，进入下一题 - 题目ID: " + 题目.当前题目ID);
         // driver已经在SolutionOperations中关闭，不需要再关闭
         题目.浏览器驱动 = null;
-        AddConfig.modifyFourthLine("config.txt", 题目.下一题号);
+        if (题目.下一题号 > 0) {
+            Config.更新题目ID(题目.下一题号);
+        }
     }
 
     /**
@@ -179,8 +193,10 @@ public class Main {
             }
         }
 
-        // 更新配置文件
-        AddConfig.modifyFourthLine("config.txt", 题目.下一题号);
+        // 更新配置文件（properties）
+        if (题目.下一题号 > 0) {
+            Config.更新题目ID(题目.下一题号);
+        }
 
         // 记录完成状态
         LogGenerate.记录完成(题目.操作成功, 题目.当前题目ID, String.valueOf(题目.下一题号));
@@ -222,3 +238,4 @@ public class Main {
         ArrayList<String> 配置内容 = null;
     }
 }
+

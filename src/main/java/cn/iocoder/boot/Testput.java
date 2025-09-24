@@ -47,12 +47,12 @@ public class Testput {
     }
 
     /**
-     * 获取当前题目ID（从配置文件读取）
+     * 获取当前题目ID（从properties配置读取）
      * @return 当前题目ID
      */
     private static String 获取当前题目ID() {
         try {
-            return ReadConfig.ConfigRead("config.txt").get(3);
+            return Config.获取题目ID();
         } catch (Exception e) {
             logger.warn("无法获取题目ID，使用默认值: {}", e.getMessage());
             return "unknown";

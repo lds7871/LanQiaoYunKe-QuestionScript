@@ -1,4 +1,0 @@
-你的蓝桥账号
-你的蓝桥密码
-你的msedgedriver.exe路径 （E:\app\edgedriver\msedgedriver.exe）
-100
